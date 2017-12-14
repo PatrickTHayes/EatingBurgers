@@ -7,7 +7,7 @@ router.get('/',function(req,res){
 })
 
 router.get('/burgers', function (req,res){
-    burger.selectAll(function (data) {
+    burger.all(function (data) {
         var hbsObject={burgers:data};
         console.log(hbsObject);
         res.render('index',hbsObject);
@@ -15,12 +15,20 @@ router.get('/burgers', function (req,res){
 });
 
 router.put('/api/burgers/:id',function(req,res){
+    console.log("you hit the put command");
     var name=req.params.id;
+    console.log(name);
     burger.update({name},function(result){
-        if (result.changedRows == 0) {
+        console.log(result);
+        //console.log(result.OkPacket)
+        console.log(result.affectedRows)
+        //console.log(result.OkPacket.affectedRows)
+        if (result.affectedRows === 0) {
           // If no rows were changed, then the ID must not exist, so 404
           return res.status(404).end();
         } else {
+            console.log("finally?");
+          //res.redirect('/');
           res.status(200).end();
         }
     })

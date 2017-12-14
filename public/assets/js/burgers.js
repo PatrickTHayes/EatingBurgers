@@ -6,11 +6,15 @@ $(function() {
     var newSleepState = {
       sleepy: newSleep
     };*/
+    console.log("devour was clicked! id: "+ id);
+    console.log("/api/burgers/"+id);
+    var newId={id:id};
+    id=id.toString();
 
     // Send the PUT request.
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
-      //data: newSleepState
+      data: newId
     }).then(
       function() {
         console.log("changed to devoured");
