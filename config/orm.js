@@ -17,16 +17,12 @@ var orm={
         })
     },
     updateOne:function(updateid,cb){
-        console.log("hit orm updateOne and updateid = " +updateid);
-        console.log(updateid);
         connection.query("UPDATE burgers SET ? WHERE ?",[{
             devoured:true
         },{
             id:updateid.name
         }],function(err,res){
             if (err){throw err};
-            console.log("got through updateOne, updateid: " +updateid);
-            //console.log(res);
             cb(res) 
         })
         

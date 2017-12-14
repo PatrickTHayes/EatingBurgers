@@ -2,12 +2,7 @@
 $(function() {
   $(".devour").on("click", function(event) {
     var id = $(this).data("id");
-    /*var newSleep = $(this).data("newsleep");
-    var newSleepState = {
-      sleepy: newSleep
-    };*/
-    console.log("devour was clicked! id: "+ id);
-    console.log("/api/burgers/"+id);
+    
     var newId={id:id};
     id=id.toString();
 

@@ -13,10 +13,7 @@ var burger={
     });
   },
   update: function(id, cb) {
-    console.log("hit burger.js")
-    console.log(id);
     orm.updateOne(id, function(res) {
-      console.log(res);
       cb(res);
     });
   }
